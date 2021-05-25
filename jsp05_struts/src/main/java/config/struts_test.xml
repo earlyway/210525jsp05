@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+
+<struts>
+
+	<package name="test" namespace="/test"
+	extends="struts-default">
+	
+		<action name="hello" class="action.test.HelloAction">
+			<result>/test/hello.jsp</result>
+		</action>
+		 <action name="age" class="action.test.AgeAction">
+			<result>/test/age_result.jsp</result>
+		</action>
+		<action name="gugu" class="action.test.GuguAction">
+			<result>/test/gugu_result.jsp</result>
+		</action>
+		<action name="point" class="action.test.PointAction">
+			<result name="success">/test/point_result.jsp</result>
+		</action>
+	</package>
+
+</struts>

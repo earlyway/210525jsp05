@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+
+<struts>
+	<package name="member" namespace="/member"
+	extends="struts-default">
+		<action name="login" class="action.member.MemberAction">
+			<result name="input">/member/login.jsp</result>
+			<result name="success" type="redirect">/member/main.jsp</result>
+		</action>
+		
+		<action name="logout" class="action.member.MemberAction"
+		method="logout">
+			<result type="redirect">/member/login.jsp</result>
+		</action>
+		<action name="member_list" class="action.member.MemberAction"
+		method="memberList">
+			<result name="success">/member/member_list.jsp</result>
+		</action>
+		<action name="member_insert" class="action.member.MemberAction"
+		method="memberInsert">
+			<result type="redirectAction">
+				<param name="actionName">member_list</param>
+			</result>
+		</action>
+		<action name="member_view" class="action.member.MemberAction"
+		method="memberView">
+			<result>/member/member_view.jsp</result>
+		</action>
+		<action name="member_update" class="action.member.MemberAction"
+		method="memberUpdate">
+			<result type="redirectAction">
+				<param name="actionName">member_list</param>
+			</result>
+		</action>
+		<action name="member_delete" class="action.member.MemberAction"
+		method = "memberDelete">
+			<result type="redirectAction">
+				<param name="actionName">member_list</param>
+			</result>
+		</action>
+		<!-- <action name="join" class="action.member.JoinAction">
+			<result name="input">/member/join.jsp</result>
+			<result name="success">/member/login.jsp</result>
+		</action>
+		<action name="userid_check" class="action.member.JoinAction"
+		method="useridCheck">
+			<result name="input">/member/userid_check.jsp</result>
+			<result name="success">/member/userid_check.jsp</result>
+		</action> -->
+	</package>
+</struts>
